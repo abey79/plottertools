@@ -53,5 +53,4 @@ On your RPi, you can access the screen by:
 $ screen -r raxicli
 ```
 
-You detach from the screen using Ctrl-A, Ctrl-D. See the [Screen User's Manual](https://www.gnu.org/software/screen
-/manual/screen.html) for more details.
+You detach from the screen using Ctrl-A, Ctrl-D. See the [Screen User's Manual](https://www.gnu.org/software/screen/manual/screen.html) for more details.
