@@ -1,0 +1,8 @@
+fabric
+toml
+tqdm
+pygame  # macOS/MacPort: CFLAGS=-I/opt/X11/include LDFLAGS=-L/opt/X11/lib pip install pygame
+
+# dev
+black
+isort
