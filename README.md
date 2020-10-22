@@ -56,7 +56,7 @@ $ screen -r raxicli
 You detach from the screen using Ctrl-A, Ctrl-D. See the [Screen User's Manual](https://www.gnu.org/software/screen/manual/screen.html) for more details.
 
 
-## serialwrite
+## `serialwrite`
 
 Simple tool to send the content of a file (typically HPGL) to a device with the possibility to enable HW flow control. A progress bar is displayed. In the future, the same tool will be able to send data to a remote host to which the plotter is connected (e.g. for a RPi-attached plotter).
 
