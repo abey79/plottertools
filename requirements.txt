@@ -1,8 +1,13 @@
 fabric
 toml
 tqdm
-pygame  # macOS/MacPort: CFLAGS=-I/opt/X11/include LDFLAGS=-L/opt/X11/lib pip install pygame
+urwid
+mido
+attrs
+click
+pyserial
 
 # dev
 black
 isort
+setuptools

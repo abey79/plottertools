@@ -16,9 +16,19 @@ setup(
     url="https://github.com/abey79/plottertools",
     license=license_file,
     packages=["raxicli"],
-    install_requires=["fabric", "toml", "tq1dm"],
+    install_requires=[
+        "attrs",
+        "click",
+        "fabric",
+        "pyserial",
+        "toml",
+        "tqdm",
+        "urwid",
+        "mido",
+    ],
     entry_points="""
         [console_scripts]
         raxicli=raxicli.raxicli:main
+        serialwrite=serialwrite.serialwrite:serialwrite
     """,
 )
