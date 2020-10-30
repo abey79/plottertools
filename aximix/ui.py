@@ -18,10 +18,7 @@ from .color_defs import GREEN, PURPLE, RED
 from .file_selector import FILE_SELECTOR_PALETTE, FileSelector
 from .launchpad import Checkbox, Fader, Launchpad, Selector
 from .pagelayout import PageLayout
-from .settings import PersistentVar, get_axidraw_config
-
-SVG_DIR = "/Users/hhip/Desktop/TEST_SVG/"
-
+from .settings import PersistentVar, get_axidraw_config, get_svg_dir
 
 CONFIG_SETTINGS = {
     "pen_rate_lower": ("Pen rate lower:", 50),
@@ -180,7 +177,7 @@ def main():
         axy.set_option(k, v)
 
     async def watch_svg():
-        async for changes in awatch(SVG_DIR):
+        async for changes in awatch(get_svg_dir()):
             txt4.set_text(str(changes))
 
     def print_event(msg):
@@ -203,7 +200,7 @@ def main():
     aloop.create_task(watch_svg())
 
     # setup file selector
-    file_selector = FileSelector(loop, lp, SVG_DIR)
+    file_selector = FileSelector(loop, lp, get_svg_dir())
     file_selector.on_accept.connect(select_file)
     file_selector.on_accept.connect(lambda path: setattr(pl, "path", path))
 

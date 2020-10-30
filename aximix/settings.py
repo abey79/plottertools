@@ -60,3 +60,7 @@ def get_axidraw_config() -> Dict[str, Any]:
                 res[key] = t(config["axidraw"][key])
 
     return res
+
+
+def get_svg_dir() -> str:
+    return config["aximix"]["svg_dir"]
