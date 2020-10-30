@@ -1,0 +1,3 @@
+PURPLE = 53
+RED = 72
+GREEN = 87

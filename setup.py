@@ -24,7 +24,12 @@ setup(
         "toml",
         "tqdm",
         "urwid",
+        "matplotlib",
         "mido",
+        "numpy",
+        "watchgod",
+        "vpype @ git+https://github.com/abey79/vpype",
+        "pyaxidraw @ https://cdn.evilmadscientist.com/dl/ad/public/AxiDraw_API.zip",
     ],
     entry_points="""
         [console_scripts]

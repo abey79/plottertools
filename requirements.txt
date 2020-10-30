@@ -6,6 +6,12 @@ mido
 attrs
 click
 pyserial
+watchgod
+git+https://github.com/abey79/vpype#egg=vpype
+matplotlib
+numpy
+https://cdn.evilmadscientist.com/dl/ad/public/AxiDraw_API.zip#pyaxidraw
+
 
 # dev
 black
