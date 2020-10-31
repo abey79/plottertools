@@ -152,15 +152,15 @@ class _ScenePopper:
 
 
 class Launchpad:
-    def __init__(self, loop):
+    def __init__(self, loop, input_name: str = "", output_name: str = ""):
         self.on_raw_event = Signal()  # msg
 
         cb, self._stream = _make_stream(loop)
 
         self._event_callbacks = []
         self._key_callbacks = {}
-        self._in = mido.open_input("Launchpad Mini MK3 LPMiniMK3 MIDI Out", callback=cb)
-        self._out = mido.open_output("Launchpad Mini MK3 LPMiniMK3 MIDI In")
+        self._in = mido.open_input(input_name, callback=cb)
+        self._out = mido.open_output(output_name)
 
         # set in programmer mode and clear all LEDs
         self._out.send(mido.Message("sysex", data=[0, 32, 41, 2, 13, 14, 1]))

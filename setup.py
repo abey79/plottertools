@@ -25,6 +25,7 @@ setup(
         "tqdm",
         "urwid",
         "matplotlib",
+        "python-rtmidi",
         "mido",
         "numpy",
         "watchgod",

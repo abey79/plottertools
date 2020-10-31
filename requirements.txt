@@ -3,6 +3,7 @@ toml
 tqdm
 urwid
 mido
+python-rtmidi
 attrs
 click
 pyserial

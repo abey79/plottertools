@@ -14,11 +14,11 @@ from axy.axidraw import axy
 from axy.stub import set_print_callback
 from watchgod import awatch
 
-from .color_defs import GREEN, PURPLE, RED
+from .color_defs import GREEN, ORANGE, PURPLE, RED
 from .file_selector import FILE_SELECTOR_PALETTE, FileSelector
 from .launchpad import Checkbox, Fader, Launchpad, Selector
 from .pagelayout import PageLayout
-from .settings import PersistentVar, get_axidraw_config, get_svg_dir
+from .settings import PersistentVar, get_axidraw_config, get_setting
 
 CONFIG_SETTINGS = {
     "pen_rate_lower": ("Pen rate lower:", 50),
@@ -102,7 +102,7 @@ class PersistentCheckbox(Checkbox):
 
 def main():
     aloop = asyncio.get_event_loop()
-    lp = Launchpad(aloop)
+    lp = Launchpad(aloop, get_setting("input_port"), get_setting("output_port"))
     pl = PageLayout()
 
     page_format_selector = PersistentSelector(
@@ -177,7 +177,7 @@ def main():
         axy.set_option(k, v)
 
     async def watch_svg():
-        async for changes in awatch(get_svg_dir()):
+        async for changes in awatch(get_setting("svg_dir")):
             txt4.set_text(str(changes))
 
     def print_event(msg):
@@ -185,7 +185,11 @@ def main():
 
     # noinspection PyUnusedLocal
     def exit_to_shell():
+        axy.shutdown()
         raise urwid.ExitMainLoop()
+
+    def shutdown():
+        axy.shutdown()
 
     def print_value(value):
         txt3.set_text(str(value))
@@ -200,7 +204,7 @@ def main():
     aloop.create_task(watch_svg())
 
     # setup file selector
-    file_selector = FileSelector(loop, lp, get_svg_dir())
+    file_selector = FileSelector(loop, lp, get_setting("svg_dir"))
     file_selector.on_accept.connect(select_file)
     file_selector.on_accept.connect(lambda path: setattr(pl, "path", path))
 
@@ -277,6 +281,10 @@ def main():
 
     lp.set_key_color(19, RED, mode="solid")
     lp.on_key_press(19).connect(lambda key: exit_to_shell())
+
+    # use drum key for power off
+    lp.set_key_color(96, ORANGE)
+    lp.on_key_press(96).connect(lambda key: shutdown())
 
     # use session key for file select
     lp.set_key_color(95, PURPLE)
