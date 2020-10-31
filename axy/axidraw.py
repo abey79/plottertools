@@ -50,19 +50,21 @@ class Axy:
         self.ad.options.mode = "manual"
         self.ad.options.manual_cmd = "disable_xy"
         self.ad.plot_run()
-
+   
     def pen_up(self):
         self.ad.plot_setup()
         self._apply_options()
-        self.ad.options.mode = "manual"
-        self.ad.options.manual_cmd = "raise_pen"
+        self.ad.options.mode = "toggle"
+        self.ad.options.pen_pos_down = self._options["pen_pos_up"]
+        self.ad.options.pen_pos_up = self._options["pen_pos_up"]
         self.ad.plot_run()
 
     def pen_down(self):
         self.ad.plot_setup()
         self._apply_options()
-        self.ad.options.mode = "manual"
-        self.ad.options.manual_cmd = "lower_pen"
+        self.ad.options.mode = "toggle"
+        self.ad.options.pen_pos_down = self._options["pen_pos_down"]
+        self.ad.options.pen_pos_up = self._options["pen_pos_down"]
         self.ad.plot_run()
 
 
