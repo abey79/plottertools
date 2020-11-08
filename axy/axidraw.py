@@ -50,7 +50,7 @@ class Axy:
         self.ad.options.mode = "manual"
         self.ad.options.manual_cmd = "disable_xy"
         self.ad.plot_run()
-   
+
     def pen_up(self):
         self.ad.plot_setup()
         self._apply_options()

@@ -102,7 +102,7 @@ class FileSelector:
 
     def _update_path_list(self):
         cnt = len(self._file_list)
-        row_cnt = math.ceil(cnt / self._columns)
+        row_cnt = min(math.ceil(cnt / self._columns), 4)
 
         contents = []
         for row in range(row_cnt):
