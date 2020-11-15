@@ -19,17 +19,14 @@ Options:
 
 ## Installation
 
-Create a virtual environment for `plottertools` (if not yet done):
+Create a virtual environment for `plottertools` (if not yet done) and activate it:
 
 ```bash
 $ python3 -m venv plottertools_venv
-```
-
-Activate it:
-
-```bash
 $ source plottertools_venv/bin/activate
 ```
+
+Note: if you already have a virtual environment for another tools (e.g. vpype), it's ok to use it as well.
 
 Install `cmyksplit`:
 
