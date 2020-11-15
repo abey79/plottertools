@@ -34,5 +34,7 @@ $ source plottertools_venv/bin/activate
 Install `cmyksplit`:
 
 ```bash
-$ pip install git+https://github.com/abey79/plottertools#egg=cmyksplit&subdirectory=cmyk
+$ pip install "git+https://github.com/abey79/plottertools#egg=cmyksplit&subdirectory=cmyksplit"
 ```
+
+*Note*: mind the quotes! 
