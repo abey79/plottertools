@@ -34,7 +34,7 @@ setup(
     ],
     entry_points="""
         [console_scripts]
-        raxicli=raxicli.raxicli:main
         serialwrite=serialwrite.serialwrite:serialwrite
+        serialserver=serialserver.serialserver:serialserver
     """,
 )
